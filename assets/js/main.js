@@ -14,6 +14,11 @@ var randomNumber = 0;
 var userNumbers = [];
 var matchedNumbers = [];
 
+// referenze
+var randomNumberList = document.getElementById('random-numbers');
+var userNumberList = document.getElementById('user-numbers');
+var matchedNumbersList = document.getElementById('matched-numbers');
+
 
 // inserire numeri random in array
 while (numbers.length < 5) {
@@ -29,7 +34,6 @@ alert(numbers);
 
 
 // prompt dopo timer di 30 secondi
-
 setTimeout(function() {
     
     // inserimento numeri dall'utente
@@ -38,12 +42,12 @@ setTimeout(function() {
     // controllo corrispondenza e inserimento in nuovo array
     controlArray(numbers, userNumbers, matchedNumbers);
 
-    // comunicazione del risultato
-    console.log('Hai ricordato ' + matchedNumbers.length + ' numeri:\n' + matchedNumbers);
+    
+    // output risultato
+    outputResult(randomNumberList, numbers, userNumberList, userNumbers, matchedNumbersList, matchedNumbers)
     
     
-    
-}, 30000);
+}, 1000);
 
 
 
@@ -63,7 +67,6 @@ function getUserNumbers() {
     for (var i = 0; i < 5; i++) {
         userNumbers.push( parseInt( prompt('Inserisci un numero')));
     };
-    console.log(userNumbers);
     
 };
 
@@ -76,3 +79,22 @@ function controlArray(array1, array2, array3) {
     };
     
 };
+
+// funzione cicli for per comunicare il risultato
+
+function outputResult(list1, array1, list2, array2, list3, array3) {
+    for (var i = 0; i < 5; i++) {
+
+        // stampa i numeri random in lista
+        list1.innerHTML += '<li>' + array1[i] + '</li>';
+
+         // stampa numeri inseriti dall'utente in lista
+        list2.innerHTML += '<li>' + array2[i] + '</li>';
+        
+    };
+
+    // stampa numeri ricordati
+    for (var j = 0; j < matchedNumbers.length; j++) {
+        list3.innerHTML += '<li>' + array3[j] + '</li>';
+    };
+}

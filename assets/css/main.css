@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    background: #333;
+    color: #222;
+}
+
+/* App style */
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    height: 700px;
+    background: rgb(202, 86, 196);
+    border-radius: 20px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+li {
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #ccc;
+}
