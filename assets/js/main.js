@@ -11,11 +11,13 @@
 
 var numbers = [];
 var randomNumber = 0;
+var userNumbers = [];
+var matchedNumbers = [];
 
 
 // inserire numeri random in array
 while (numbers.length < 5) {
-    randomNumber = getRandomNumber(1, 10);
+    randomNumber = getRandomNumber(1, 50);
 
     if (!isInArray(numbers, randomNumber)) {
         numbers.push(randomNumber);
@@ -25,6 +27,23 @@ while (numbers.length < 5) {
 // comunicare numeri
 alert(numbers);
 
+
+// prompt dopo timer di 30 secondi
+
+setTimeout(function() {
+    
+    // inserimento numeri dall'utente
+    getUserNumbers();
+
+    // controllo corrispondenza e inserimento in nuovo array
+    controlArray(numbers, userNumbers, matchedNumbers);
+
+    // comunicazione del risultato
+    console.log('Hai ricordato ' + matchedNumbers.length + ' numeri:\n' + matchedNumbers);
+    
+    
+    
+}, 30000);
 
 
 
@@ -37,4 +56,23 @@ function getRandomNumber(min, max) {
 // funzione controllo presenza numero in array
 function isInArray(array, number) {
     return array.includes(number);
+};
+
+// funzione per richiedere i numeri all'utente e push nell'array
+function getUserNumbers() {
+    for (var i = 0; i < 5; i++) {
+        userNumbers.push( parseInt( prompt('Inserisci un numero')));
+    };
+    console.log(userNumbers);
+    
+};
+
+// funzione per controllo se numeri utente in array numeri random e aggiungerli ad array numeri indovinati
+function controlArray(array1, array2, array3) {
+    for (var i = 0; i < 5; i++) {
+        if (isInArray(array1, array2[i])) {
+            array3.push(array2[i]);
+        }
+    };
+    
 };
