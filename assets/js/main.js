@@ -47,7 +47,7 @@ setTimeout(function() {
     outputResult(randomNumberList, numbers, userNumberList, userNumbers, matchedNumbersList, matchedNumbers)
     
     
-}, 1000);
+}, 30000);
 
 
 
